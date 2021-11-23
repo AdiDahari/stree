@@ -68,12 +68,12 @@ int main(int argc, char *argv[])
 
     if (argc == 1)
     {
-        nftw(".", list, 1, FTW_CHDIR);
+        nftw(".", list, 1, 0);
     }
     else
     {
         prefix = strlen(argv[1]);
-        nftw(argv[1], list, 1, FTW_CHDIR);
+        nftw(argv[1], list, 1, 0);
     }
     printf("\n\n%d directories, %d files\n", n_dirs, n_files);
     return 0;
