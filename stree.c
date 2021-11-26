@@ -65,8 +65,7 @@ static int list(const char *name, const struct stat *status, int type, struct FT
         {
             printf("    ");
         }
-        printf("%s[-%s%s%s %s %s %*ld]  %s", curr->last ? LAST : ENTRY, perms[a[0] - '0'], perms[a[1] - '0'], perms[a[2] - '0'], pwd->pw_name, grp->gr_name, 11, status->st_size, name + ftwb->base);
-        printf(" (indent: %d)\n", curr->indent);
+        printf("%s[-%s%s%s %s %s %*ld]  %s\n", curr->last ? LAST : ENTRY, perms[a[0] - '0'], perms[a[1] - '0'], perms[a[2] - '0'], pwd->pw_name, grp->gr_name, 11, status->st_size, name + ftwb->base);
     }
 
     if (type == FTW_D && strcmp(".", name) != 0 && strcmp("", name) != 0 && strcmp("..", name) != 0)
@@ -117,8 +116,7 @@ static int list(const char *name, const struct stat *status, int type, struct FT
         {
             printf("    ");
         }
-        printf("%s[d%s%s%s %s %s %*ld]  %s", curr->last ? LAST : ENTRY, perms[a[0] - '0'], perms[a[1] - '0'], perms[a[2] - '0'], pwd->pw_name, grp->gr_name, 11, status->st_size, name + ftwb->base);
-        printf(" (indent: %d)\n", curr->indent);
+        printf("%s[d%s%s%s %s %s %*ld]  %s\n", curr->last ? LAST : ENTRY, perms[a[0] - '0'], perms[a[1] - '0'], perms[a[2] - '0'], pwd->pw_name, grp->gr_name, 11, status->st_size, name + ftwb->base);
     }
 
     return 0;
