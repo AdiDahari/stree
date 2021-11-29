@@ -10,7 +10,7 @@
 
 typedef struct node
 {
-    int level, last, indent;
+    int level, last;
     int *dirs;
     struct node *prev;
     struct node *next;
@@ -131,7 +131,7 @@ static int pre_list(const char *name, const struct stat *status, int type, struc
         curr->next = (node *)malloc(sizeof(node));
         curr->next->dirs = (int *)calloc(ftwb->level, sizeof(int));
         curr->next->level = ftwb->level;
-        curr->next->last = curr->next->indent = 0;
+        curr->next->last = 0;
         curr->next->prev = curr;
         curr = curr->next;
         curr->next = NULL;
@@ -144,7 +144,7 @@ static int pre_list(const char *name, const struct stat *status, int type, struc
 int main(int argc, char *argv[])
 {
     head = (node *)malloc(sizeof(node));
-    head->level = head->last = head->indent = 0;
+    head->level = head->last = 0;
     curr = head;
 
     if (argc == 1)
